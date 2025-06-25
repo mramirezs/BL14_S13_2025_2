@@ -47,49 +47,13 @@ Un bucle `while` ejecuta un conjunto de comandos repetidamente mientras una cond
 ### 📝 Sintaxis básica
 
 ```bash
-while [ CONDICIÓN ]
+while [ CONDICIÓN ] # No se olviden de los espacios en blanco en los []
 do
     comando1
     comando2
     comandoN
 done
 ```
-
-### 🔢 Ejemplo básico
-
-```bash
-#!/bin/bash
-# Archivo: while.sh
-number=10
-while [ $number -gt 5 ]
-do
-    echo $number 
-    number=$(($number-1))
-done
-```
-
-**Resultado:**
-```
-10
-9
-8
-7
-6
-```
-
-### 🔄 Bucle infinito (¡Ten cuidado!)
-
-```bash
-#!/bin/bash
-# Archivo: forever.sh
-while [ true ]
-do
-    echo "Este es un bucle infinito. Presiona CTRL + C para salir."
-    sleep 0.5
-done
-```
-
----
 
 ## 📊 Operadores de Comparación
 
@@ -126,6 +90,42 @@ done
 | `-r archivo` | Tiene permiso de lectura |
 | `-w archivo` | Tiene permiso de escritura |
 | `-x archivo` | Tiene permiso de ejecución |
+
+---
+
+### 🔢 Ejemplo básico
+
+```bash
+#!/bin/bash
+# Archivo: while.sh
+number=10
+while [ $number -gt 5 ]
+do
+    echo $number 
+    number=$(($number-1))
+done
+```
+
+**Resultado:**
+```
+10
+9
+8
+7
+6
+```
+
+### 🔄 Bucle infinito (¡Ten cuidado!)
+
+```bash
+#!/bin/bash
+# Archivo: forever.sh
+while [ true ]
+do
+    echo "Este es un bucle infinito. Presiona CTRL + C para salir."
+    sleep 0.5
+done
+```
 
 ---
 
@@ -166,7 +166,7 @@ else
 fi
 ```
 
-### 📝 Ejemplo práctico
+### 📝 Ejemplo práctico 1
 
 ```bash
 #!/bin/bash
@@ -185,11 +185,30 @@ fi
 
 **Uso:** `bash numeros.sh 10 5`
 
+### 📝 Ejemplo práctico 2
+
+```bash
+#!/bin/bash
+# Archivo: marck.sh
+
+echo "Enter your marks out of 100: "
+read marks
+
+if [$marks -gt 100]; then
+    echo "You have entered incorrect marks: $marks"
+fi
+```
+
+**Uso:** `bash marck.sh `
+
 ---
 
 ## 🔧 Comando test
 
+Comando que devuelve un valor indicando si su función/comparación ha tenido éxito o no.
+
 El comando `test` evalúa expresiones y devuelve:
+
 - **0** = Verdadero (éxito)
 - **1** = Falso (no éxito)
 
